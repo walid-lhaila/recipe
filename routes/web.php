@@ -23,4 +23,4 @@ Route::get('/', function () {
 Route::get('/index', [CategoryController::class ,'index']);
 Route::get('/create', [RecipeController::class ,'create']);
 Route::post('/create', [RecipeController::class, 'store']);
-
+Route::get('delete-recipe/{id}', [RecipeController::class, 'destroy']);

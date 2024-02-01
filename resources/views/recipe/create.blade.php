@@ -67,17 +67,17 @@
     
         <div class="p-6">
             <div>
-                <span class="text-xs font-medium text-orange-400 uppercase dark:text-orange-400">{{ $recipe->category_id }}</span>
-                <a href="#" class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 " tabindex="0" role="link">{{ $recipe->name}}</a>
+                <span class="text-xs font-medium text-orange-400 uppercase dark:text-orange-400">{{ $recipe->category->name }}</span>
+                <a href="#" class="block mt-2 text-xl font-semibold text-gray-800 transition-colors  dark:text-white hover:text-gray-600 ">{{ $recipe->name}}</a>
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-500">{{ $recipe->description}}</p>
                 <p class="mt-2 text-sm  dark:text-orange-300">{{ $recipe->ingredients}}</p>
 
             </div>
     
             <div class="mt-4">
-                <div class="flex items-center">
+                <div class="flex gap-10 items-center">
                     <div class="flex items-center">
-                        <a href="#" class="mx-2 font-semibold text-gray-700 dark:text-gray-500" tabindex="0" role="link">Jone Doe</a>
+                        <a href="{{ url('delete-recipe/'.$recipe->id)}}" class="btn btn-danger btn-sm text-red-600">Delete</a>
                     </div>
                     <span class="mx-1 text-xs text-gray-600 dark:text-gray-500">{{ $recipe->created_at}}</span>
                 </div>
