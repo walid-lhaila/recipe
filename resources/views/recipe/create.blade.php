@@ -1,11 +1,24 @@
     @extends('recipe.layout')
 
     @section('content')
-
+                                                                        <!--btn to add recipe -->
     <div class=" flex justify-end">
             <button id="btn" class=" mt-5 mr-5 bg-orange-400 border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange-500">Add Recipe</button>
     </div>
-
+    
+                                                                         <!--searsh-->
+    <div class="flex mt-5 justify-center">
+        <div class="relative w-96">
+            <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-200 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-1 border border-gray-300 focus:ring-orange-500 focus:border-orange-500 dark:bg-white dark:border-s-gray-600  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-orange-500" placeholder="Search Recipes" required>
+            <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-orange-400 rounded-e-lg border border-blue-700 hover:bg-orange-300 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-400 dark:hover:bg-orange-500 dark:focus:ring-blue-800">
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+                <span class="sr-only">Search</span>
+            </button>
+        </div>
+    </div>
+                                                                             <!--form-->
     <div id="form" class="absolute w-full h-full inset-0 bg-opacity-50 backdrop-filter backdrop-blur-md flex justify-center items-center bg-orange-300 scale-0 duration-300">
         <div class="bg-orange-400 w-[560px] ml-[20px]">
             <form action="/create" method="post" enctype="multipart/form-data" class="max-w-md mx-auto bg-orange-400 py-10">
@@ -36,9 +49,20 @@
                 </div>
 
                 <div class="relative z-0 w-full mb-5 group">
-                    <label class="block mb-2 text-sm font-bold text-white" for="image">Upload file</label>
-                    <input name="image" class="bg-transparent border-0 border-b-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-describedby="user_avatar_help" type="file">
-                </div>
+                 <label class="block mb-2 text-sm font-bold text-white" for="image">Upload file</label>
+                    {{-- <input name="image" class="bg-transparent border-0 border-b-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-describedby="user_avatar_help" type="file"> --}}
+                        <label for="dropzone-file" class="flex flex-col items-center w-full max-w-lg p-5 mx-auto mt-2 text-center bg-white border-2 border-gray-300 border-dashed cursor-pointer dark:bg-orange-300 dark:border-white rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-600 dark:text-gray-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                            </svg>
+                    
+                            <h2 class="mt-1 font-medium tracking-wide text-gray-700 dark:text-gray-200">upload File</h2>
+                    
+                            <p class="mt-2 text-xs tracking-wide text-gray-700 dark:text-gray-700">Upload or darg & drop your file SVG, PNG, JPG or GIF. </p>
+                    
+                            <input name="image" id="dropzone-file" type="file" class="hidden" />
+                        </label>
+                    </div>
 
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-5 group">
@@ -58,8 +82,7 @@
             </form>
         </div>
     </div>
-
-                                                                <!--card-->
+                                                                     <!--card-->
 <div class="flex flex-wrap justify-center gap-10 mt-10">
     @foreach ($recipes as $recipe)
     <div class="max-w-2xl overflow-hidden bg-gray-200 rounded-lg shadow-md ">
