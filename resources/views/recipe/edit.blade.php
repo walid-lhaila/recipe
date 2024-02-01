@@ -5,8 +5,7 @@
 <div class=" flex justify-end mt-10 mr-10">
     <a href="/create"><button id="btn" class=" mt-5 mr-5 bg-orange-400 border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange-500">back</button></a>
 </div>
-<div>
-<div class="bg-orange-400 w-[560px] ml-[20px]">
+<div class="bg-orange-400 w-[560px] ml-[450px]">
     <form action="{{ url('update-recipe/'.$recipe->id) }}" method="post" enctype="multipart/form-data" class="max-w-md mx-auto bg-orange-400 py-10">
         @csrf <!-- Add this to include the CSRF token -->
 

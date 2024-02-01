@@ -94,7 +94,7 @@ class RecipeController extends Controller
         $recipe->image_path = $request->input('image_path');
         $recipe->category_id = $request->input('categoryId');
         $recipe->update();
-        return redirect()->back()->with('status', 'recipe updated successfully');
+        return redirect('create')->with('status', 'recipe updated successfully');
 
 
     }
