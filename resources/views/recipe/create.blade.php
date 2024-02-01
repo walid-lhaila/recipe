@@ -76,8 +76,9 @@
     
             <div class="mt-4">
                 <div class="flex gap-10 items-center">
-                    <div class="flex items-center">
+                    <div class="flex gap-10 items-center">
                         <a href="{{ url('delete-recipe/'.$recipe->id)}}" class="btn btn-danger btn-sm text-red-600">Delete</a>
+                        <a href="{{ url('/edit/'.$recipe->id) }}" class="btn btn-primary btn-sm text-yellow-400">Edit</a>
                     </div>
                     <span class="mx-1 text-xs text-gray-600 dark:text-gray-500">{{ $recipe->created_at}}</span>
                 </div>
