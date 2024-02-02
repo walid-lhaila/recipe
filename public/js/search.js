@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var searchResults = document.getDElementById("searchResults");
+    var searchResults = document.getElementById("searchResults");
     if (searchResults){
         setTimeout(function() {
-            searchResults.style.display = 'none';
-        },3000); 
+            searchResults.classList.add('opacity-0');
+        },200); 
     }
 });

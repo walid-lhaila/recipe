@@ -36,29 +36,26 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-        } else {
-            $imagePath = null;
-        }
+
+        $imagePath = null;
+
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images', 'public');
+
+        $imageName = time() . '.' . $request->image->extension();
+        $request->file('image')->storeAs('public/image', $imageName);
+
+        // You can use $imageName wherever you need it, for example, storing in the database.
+    }
         $recipe = Recipe::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'ingredients' => $request->input('ingredients'),
-            'image_path' => $imagePath,
+            'image' => $imagePath,
             'category_id' => $request->input('categoryId'),
         ]);
 
-        return redirect('index')->with('success', 'Recipe created successfully');
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'description' => 'required',
-        //     'ingredients' => 'required',
-        //     'category_id' => 'required',
-        //     'image' => 'image|mimes:jpeg,png,jpg,gif',
-
-        // ]);
+        return redirect('create')->with('success', 'Recipe created successfully');
 
     }
     public function search(Request $request)

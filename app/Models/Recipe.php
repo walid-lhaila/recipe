@@ -13,6 +13,7 @@ class Recipe extends Model
         'name',
         'description',
         'ingredients',
+        'image',
         'category_id',
     ];
 
