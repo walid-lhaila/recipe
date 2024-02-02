@@ -19,7 +19,7 @@
 @else
 
 <div class="w-full xl:w-10/12 px-4 mx-auto mt-8">
-    <div class="rounded-t mb-0 px-4 py-3 border-0 bg-orange-400 ">
+    <div id="serachResult" class="rounded-t mb-0 px-4 py-3 border-0 bg-orange-400 ">
         <div class="flex flex-wrap items-center text-white ">
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                 <h3 class="font-bold text-base text-blueGray-700">Search Results for "{{ $results }}"</h3>
@@ -60,4 +60,6 @@
         @endforeach
     </div>
     @endif
+
+    <script src="{{ url('js/search.js')}}"></script>
 @endsection
