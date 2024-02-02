@@ -14,11 +14,11 @@
     </head>
     <body>
             <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-orange-400">
-                <div class="container px-6 py-4 mx-auto">
+                <div class="container px-6 py-1 mx-auto">
                     <div class="lg:flex lg:items-center lg:justify-between">
                         <div class="flex items-center justify-between">
                             <a href="#" class="mx-auto ">
-                                <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                                <img class="w-28 h-12 " src="{{ url('img/logo2.png')}}" alt="">
                             </a>
         
                             <!-- Mobile menu button -->
@@ -38,11 +38,11 @@
                 </div>
             </nav>
         
-            <div class="w-full bg-center bg-cover h-[669px]" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');">
+            <div class="w-full bg-center bg-cover h-[673px]" style="background-image: url('img/back.jpg');">
                 <div class="flex items-center justify-center w-full h-full bg-gray-900/40">
                     <div class="text-center">
                         <h1 class="text-3xl font-semibold text-white lg:text-4xl">Build your new <span class="text-orange-400">Saas</span> Project</h1>
-                        <button class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-orange-400 rounded-md lg:w-auto hover:bg-orange-500 focus:outline-none focus:bg-orange-500">Start project</button>
+                        <a href="/create"><button class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-orange-400 rounded-md lg:w-auto hover:bg-orange-500 focus:outline-none focus:bg-orange-500">Get Started</button></a>
                     </div>
                 </div>
             </div>
