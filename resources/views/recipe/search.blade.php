@@ -29,7 +29,7 @@
     <div class="flex flex-wrap justify-center gap-10 mt-10">
         @foreach ($recipes as $recipe)
         <div class="max-w-2xl overflow-hidden bg-gray-200 rounded-lg shadow-md ">
-            <img class="object-cover w-full h-64" src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Article">
+            <img class="object-cover w-full h-64" src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->name }}" alt="{{ $recipe->name}}">
         
             <div class="p-6">
                 <div>

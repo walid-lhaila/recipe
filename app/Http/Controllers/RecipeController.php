@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
@@ -102,8 +103,16 @@ class RecipeController extends Controller
         $recipe->name = $request->input('name');
         $recipe->description = $request->input('description');
         $recipe->ingredients = $request->input('ingredients');
-        $recipe->image_path = $request->input('image_path');
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            Storage::disk('public')->delete($recipe->image);
+    
+            // Store the new image
+            $imagePath = $request->file('image')->store('images', 'public');
+            $recipe->image = $imagePath;
+        }
         $recipe->category_id = $request->input('categoryId');
+
         $recipe->update();
         return redirect('create')->with('status', 'recipe updated successfully');
 
