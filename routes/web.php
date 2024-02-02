@@ -26,3 +26,4 @@ Route::post('/create', [RecipeController::class, 'store']);
 Route::get('/edit/{id}', [RecipeController::class, 'edit']);
 Route::get('delete-recipe/{id}', [RecipeController::class, 'destroy']);
 Route::post('update-recipe/{id}', [RecipeController::class, 'update']);
+Route::get('/search', [RecipeController::class, 'search']);

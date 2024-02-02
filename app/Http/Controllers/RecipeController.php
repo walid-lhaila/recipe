@@ -11,9 +11,12 @@ class RecipeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-       
+        $recipes = Recipe::all();
+        $categories = Category::all();
+    
+        return view('recipe.index', compact('recipes', 'categories'));
     }
 
     /**
@@ -57,12 +60,23 @@ class RecipeController extends Controller
 
         // ]);
 
-
-
-
-
-
     }
+    public function search(Request $request)
+{
+    $results = $request->input('results');
+
+    $recipes = Recipe::where('name', 'like', "%$results%")
+        ->orWhere('description', 'like', "%$results%")
+        ->orWhere('ingredients', 'like', "%$results%")
+        ->orWhereHas('category', function ($query) use ($results) {
+            $query->where('name', 'like', "%$results%");
+        })
+        ->get();
+
+    $categories = Category::all();
+
+    return view('recipe.search', compact('recipes', 'results', 'categories'));
+}
 
     /**
      * Display the specified resource.
